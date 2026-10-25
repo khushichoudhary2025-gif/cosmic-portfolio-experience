@@ -207,6 +207,7 @@ function Preview({ seed }: { seed: number }) {
 }
 export function Projects() {
   const [feat, ...rest] = profile.projects;
+  if (!feat) return null;
   return (
     <section id="projects" aria-labelledby="projects-h" className="px-6 py-32 md:px-12">
       <Heading light eyebrow="03 — Missions" title={<span id="projects-h">Selected <em>work</em></span>} />

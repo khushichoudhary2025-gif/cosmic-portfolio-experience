@@ -51,7 +51,7 @@ export function Tilt({ children, className, max = 10 }: { children: ReactNode; c
 /* ---------- Ripple button ---------- */
 export function GlowButton({ children, href, onClick, variant = "solid", type, ...rest }: { children: ReactNode; href?: string; onClick?: () => void; variant?: "solid" | "ghost"; type?: "submit" | "button"; [k: string]: unknown }) {
   const [ripples, setRipples] = useState<{ id: number; x: number; y: number }[]>([]);
-  const base = "relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
+  const base = "relative inline-flex items-center gap-2 overflow-hidden whitespace-nowrap rounded-full px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
   const styles = variant === "solid" ? "bg-primary text-primary-foreground shadow-glow" : "glass-light text-ink";
   const addRipple = (e: MouseEvent<HTMLElement>) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -65,7 +65,7 @@ export function GlowButton({ children, href, onClick, variant = "solid", type, .
       {ripples.map((r) => (
         <motion.span key={r.id} aria-hidden className="pointer-events-none absolute size-4 rounded-full bg-starlight/60" style={{ left: r.x - 8, top: r.y - 8 }} initial={{ scale: 0, opacity: 0.8 }} animate={{ scale: 14, opacity: 0 }} transition={{ duration: 0.7 }} />
       ))}
-      <span className="relative">{children}</span>
+      <span className="relative inline-flex items-center gap-2">{children}</span>
     </>
   );
   return (
