@@ -1,7 +1,7 @@
 // Edit this file to personalise the portfolio. All sections read from here.
 export const profile = {
-  name: "Khushi Choudhary",
-  initials: "KC",
+  name: "Your Name",
+  initials: "YN",
   tagline: "AI Engineer · Full Stack Developer · ML Enthusiast",
   titles: ["AI Engineer", "Full Stack Developer", "ML Engineer", "Backend Developer", "Creator", "Builder"],
   email: "you@example.com",
