@@ -83,7 +83,7 @@ function Planet({ pos, r, color, ring, speed }: { pos: THREE.Vector3Tuple; r: nu
   );
 }
 
-function AICore({ mouse, scroll }: Props) {
+function AICore({ mouse }: Props) {
   const outer = useRef<THREE.Mesh>(null);
   const inner = useRef<THREE.Mesh>(null);
   const rings = useRef<THREE.Group>(null);
@@ -116,28 +116,23 @@ function AICore({ mouse, scroll }: Props) {
       </sprite>
       <mesh ref={inner}>
         <icosahedronGeometry args={[0.9, 4]} />
-        <meshStandardMaterial color="#dff1ff" emissive="#7cc4ff" emissiveIntensity={1.4} roughness={0.2} />
+        <meshStandardMaterial color="#bcd9ff" emissive="#3f86ff" emissiveIntensity={1.4} roughness={0.2} />
       </mesh>
       <mesh ref={outer}>
         <icosahedronGeometry args={[1.6, 1]} />
-        <meshStandardMaterial color="#9ccfff" wireframe transparent opacity={0.45} emissive="#5aa8ff" emissiveIntensity={0.6} />
+        <meshStandardMaterial color="#2f6fe0" wireframe transparent opacity={0.45} emissive="#5aa8ff" emissiveIntensity={0.6} />
       </mesh>
       <group ref={rings}>
         {[2.2, 2.7, 3.2].map((r, i) => (
           <mesh key={r} rotation={[0, i * 0.5, 0]}>
             <torusGeometry args={[r, 0.008, 8, 160]} />
-            <meshBasicMaterial color="#aedcff" transparent opacity={0.5 - i * 0.12} />
+            <meshBasicMaterial color="#3a78e0" transparent opacity={0.6 - i * 0.12} />
           </mesh>
         ))}
       </group>
-      <Sparkles count={60} scale={5} size={2.5} speed={0.6} color="#bfe3ff" />
-      <ScrollHide scroll={scroll} />
+      <Sparkles count={60} scale={5} size={2.5} speed={0.6} color="#4f8fff" />
     </group>
   );
-}
-
-function ScrollHide(_: Pick<Props, "scroll">) {
-  return null;
 }
 
 function Rig({ mouse, scroll }: Props) {
