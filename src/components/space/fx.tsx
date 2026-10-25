@@ -101,7 +101,7 @@ export function OrbCursor() {
       mx.set(e.clientX);
       my.set(e.clientY);
       const t = (e.target as HTMLElement).closest?.("[data-cursor], a, button, input, textarea") as HTMLElement | null;
-      setMode(t ? (t.dataset.cursor === "magnet" ? "magnet" : "grow") : "idle");
+      setMode(t ? (t.dataset["cursor"] === "magnet" ? "magnet" : "grow") : "idle");
     };
     window.addEventListener("pointermove", move);
     return () => {

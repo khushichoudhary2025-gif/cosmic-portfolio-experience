@@ -49,7 +49,7 @@ function Nebula({ scroll }: Pick<Props, "scroll">) {
     <group ref={group}>
       {clouds.map((c, i) => (
         <sprite key={i} position={c.p as unknown as THREE.Vector3Tuple} scale={[c.s, c.s, 1]}>
-          <spriteMaterial map={textures[c.t]} transparent depthWrite={false} blending={THREE.AdditiveBlending} />
+          <spriteMaterial map={textures[c.t] ?? null} transparent depthWrite={false} blending={THREE.AdditiveBlending} />
         </sprite>
       ))}
     </group>
